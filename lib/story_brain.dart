@@ -59,4 +59,7 @@ class StoryBrain {
   }
 
   void restart() => _storyNumber = 0;
+
+  bool get buttonShouldBeVisible =>
+      _storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2;
 }

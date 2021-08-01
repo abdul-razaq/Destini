@@ -49,19 +49,22 @@ class _StoryPageState extends State<StoryPage> {
               ),
               Expanded(
                 child: Container(
-                  child: TextButton(
-                    onPressed: () {
-                      setState(() {
-                        storyBrain.nextStory(1);
-                      });
-                    },
-                    child: Text(
-                      storyBrain.getChoice1,
-                      style: TextStyle(
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                  child: Visibility(
+                    child: TextButton(
+                      onPressed: () {
+                        setState(() {
+                          storyBrain.nextStory(1);
+                        });
+                      },
+                      child: Text(
+                        storyBrain.getChoice1,
+                        style: TextStyle(
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
                     ),
+                    visible: storyBrain.buttonShouldBeVisible,
                   ),
                   color: Colors.red,
                 ),
@@ -72,19 +75,22 @@ class _StoryPageState extends State<StoryPage> {
               ),
               Expanded(
                 child: Container(
-                    child: TextButton(
-                      onPressed: () {
-                        setState(() {
-                          storyBrain.nextStory(2);
-                        });
-                      },
-                      child: Text(
-                        storyBrain.getChoice2,
-                        style: TextStyle(
-                            fontSize: 25.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                    child: Visibility(
+                      child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            storyBrain.nextStory(2);
+                          });
+                        },
+                        child: Text(
+                          storyBrain.getChoice2,
+                          style: TextStyle(
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
                       ),
+                      visible: storyBrain.buttonShouldBeVisible,
                     ),
                     color: Colors.blue),
                 flex: 2,
