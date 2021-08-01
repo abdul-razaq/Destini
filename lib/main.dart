@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'story_brain.dart';
+
 void main() => runApp(Destini());
 
 class Destini extends StatelessWidget {
@@ -12,6 +14,8 @@ class Destini extends StatelessWidget {
     );
   }
 }
+
+final StoryBrain storyBrain = StoryBrain();
 
 class StoryPage extends StatefulWidget {
   @override
@@ -36,44 +40,49 @@ class _StoryPageState extends State<StoryPage> {
               Expanded(
                 child: Center(
                   child: Text(
-                    "Story text will go here...",
-                    style: TextStyle(fontSize: 25.0),
+                    storyBrain.getStory,
+                    style:
+                        TextStyle(fontSize: 25.0, fontFamily: "Roboto-Black"),
                   ),
                 ),
                 flex: 12,
               ),
               Expanded(
-                  child: Container(
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Choice 1",
-                        style: TextStyle(
-                            fontSize: 25.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                    ),
-                    color: Colors.red,
-                  ),
-                  flex: 2,),
-              SizedBox(
-                height: 20.0,
-              ),
-              Expanded(
                 child: Container(
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      storyBrain.nextStory(1);
+                    },
                     child: Text(
-                      "Choice 2",
+                      storyBrain.getChoice1,
                       style: TextStyle(
                           fontSize: 25.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
                   ),
-                  color: Colors.blue
+                  color: Colors.red,
                 ),
+                flex: 2,
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Expanded(
+                child: Container(
+                    child: TextButton(
+                      onPressed: () {
+                        storyBrain.nextStory(2);
+                      },
+                      child: Text(
+                        storyBrain.getChoice2,
+                        style: TextStyle(
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ),
+                    color: Colors.blue),
                 flex: 2,
               ),
             ],
